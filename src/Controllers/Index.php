@@ -13,7 +13,9 @@ class Index {
    * Index page
    * @return $this
    */
-  public function indexAction() {
+  public function indexAction(): Index
+  {
+    header("Location: login");
     return $this;
   }
   /**

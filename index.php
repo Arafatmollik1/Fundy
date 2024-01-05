@@ -33,8 +33,6 @@
 
   //This is the basic layout
   include 'views/head.php';
-  include 'views/header.php';
   include($includeFrontend); //main body
   include 'views/footer.php';
-
 ?>

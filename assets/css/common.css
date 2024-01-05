@@ -1,1 +1,117 @@
+@import url('https://fonts.cdnfonts.com/css/roboto');
+:root,
+[data-bs-theme=light] {
+    --fundy-bg-color-main: #FBFEFF;
+    --fundy-color-primary: #364C6F;
+    --fundy-color-secondary: #486FAD;
+    --fundy-color-gray : #D8D8D8;
+    --fundy-color-bg-success : #D2E892;
+    --fundy-color-success : #3C8476;
+    --fundy-color-bg-warning : #E7AC9E;
+    --fundy-color-warning : #EA5757;
+    --fundy-hover-primary: #2c3e50;
+    --fundy-hover-secondary: #3e5a8e;
+    --fundy-text-color: #212529;
+}
+:root,
+[data-bs-theme=dark] {
+    --fundy-bg-color-main: #212529;
+    --fundy-color-primary: #486fad;
+    --fundy-color-secondary: #5f7eb6;
+    --fundy-color-gray : #ced4da;
+    --fundy-color-bg-success : #155724;
+    --fundy-color-success : #28a745;
+    --fundy-color-bg-warning : #856404;
+    --fundy-color-warning : #ffc107;
+    --fundy-hover-primary: #43649a;
+    --fundy-hover-secondary: #5974a5;
+    --fundy-text-color: #f8f9fa;
 
+}
+.main-body{
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--fundy-bg-color-main);
+    color: var(--fundy-text-color);
+}
+
+/* Button styles */
+.btn {
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary {
+    background-color: var(--fundy-color-primary);
+    border-color: var(--fundy-color-primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--fundy-hover-primary);
+    border-color: var(--fundy-hover-primary);
+}
+
+.btn-secondary {
+    background-color: var(--fundy-color-secondary);
+    border-color: var(--fundy-color-secondary);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: var(--fundy-hover-secondary);
+    border-color: var(--fundy-hover-secondary);
+}
+
+/* Text color classes */
+.text-primary {
+    color: var(--fundy-color-primary);
+}
+
+.text-secondary {
+    color: var(--fundy-color-secondary);
+}
+
+.text-success {
+    color: var(--fundy-color-success);
+}
+
+.text-warning {
+    color: var(--fundy-color-warning);
+}
+
+/* Background color classes */
+.bg-primary {
+    background-color: var(--fundy-color-primary);
+    color: #fff;
+}
+
+.bg-secondary {
+    background-color: var(--fundy-color-secondary);
+    color: #fff;
+}
+
+.bg-success {
+    background-color: var(--fundy-color-bg-success);
+    color: var(--fundy-color-success);
+}
+
+.bg-warning {
+    background-color: var(--fundy-color-bg-warning);
+    color: var(--fundy-color-warning);
+}
+
+/* Alert styles */
+.alert-success {
+    background-color: var(--fundy-color-bg-success);
+    color: var(--fundy-color-success);
+}
+
+.alert-warning {
+    background-color: var(--fundy-color-bg-warning);
+    color: var(--fundy-color-warning);
+}

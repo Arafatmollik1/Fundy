@@ -1,0 +1,67 @@
+#customBtn {
+    display: inline-block;
+    background: var(--fundy-bg-color-main);
+    color: var(--fundy-text-color);
+    text-align: center;
+    width: 300px;
+    border-radius: 5px;
+    border: thin solid #888;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+  }
+  #customBtn:hover {
+    cursor: pointer;
+  }
+  span.label {
+    font-weight: normal;
+  }
+  span.icon {
+    background: url('../../assets/pictures/google_icon.svg') transparent 5px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+  }
+  span.buttonText {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .login-separator {
+    text-align: center;
+    position: relative;
+    line-height: 0.1em; /* To control the distance of the line from the text */
+    margin: 20px 0; /* Space above and below the separator */
+  }
+  
+  /* Create lines before and after the OR text */
+  .login-separator span {
+    font-size: 12px;
+    padding: 0 10px; /* Space around the OR text */
+  }
+  
+  /* Pseudo-elements for the lines */
+  .login-separator:before,
+  .login-separator:after {
+    content: '';
+    background: var(--fundy-text-color); /* Color of the lines */
+    display: inline-block;
+    width: 40%; /* Length of the lines */
+    vertical-align: middle;
+    height: 1px; /* Thickness of the lines */
+  }
+  
+  .login-separator:before {
+    right: 10px;
+    margin-left: -50%;
+  }
+  
+  .login-separator:after {
+    left: 10px;
+    margin-right: -50%;
+  }
+  .basic-auth-container{
+      min-width: 300px;
+  }
+  

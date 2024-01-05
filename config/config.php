@@ -11,7 +11,7 @@ class Config
 
   private function __construct()
   {
-    $baseUrlEnd = '/php-mvc-template';
+    $baseUrlEnd = '/fundy';
     //loading .env files access them via $_ENV[] with all capital
     $_env = Dotenv::createImmutable(__DIR__ . '/../');
     $_env->load();
