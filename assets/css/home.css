@@ -1,0 +1,19 @@
+.ticket-price{
+    display: flex;
+    margin-bottom: 20px;
+}
+.ticket-price > .tag-holder{
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    background-color: var(--fundy-color-bg-success);
+    color: var(--fundy-color-success);
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 10px;
+}
+.ticket-price > p{
+    color: var(--fundy-color-gray);
+}
