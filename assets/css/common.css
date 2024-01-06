@@ -4,6 +4,8 @@
     --fundy-bg-color-main: #FBFEFF;
     --fundy-color-primary: #364C6F;
     --fundy-color-secondary: #486FAD;
+    --fundy-bg-color-gray : #eeeeee;
+    --fundy-text-when-bg-grey : #676767;
     --fundy-color-gray : #D8D8D8;
     --fundy-color-bg-success : #D2E892;
     --fundy-color-success : #3C8476;
@@ -18,6 +20,8 @@
     --fundy-bg-color-main: #212529;
     --fundy-color-primary: #486fad;
     --fundy-color-secondary: #5f7eb6;
+    --fundy-bg-color-gray : #918f8f;
+    --fundy-text-when-bg-grey : #474747;
     --fundy-color-gray : #ced4da;
     --fundy-color-bg-success : #155724;
     --fundy-color-success : #2fc151;
@@ -98,6 +102,10 @@
 .bg-success {
     background-color: var(--fundy-color-bg-success);
     color: var(--fundy-color-success);
+}
+.bg-gray{
+    background-color: var(--fundy-bg-color-gray) !important ;
+    color: var(--fundy-text-when-bg-grey) !important;
 }
 
 .bg-warning {
