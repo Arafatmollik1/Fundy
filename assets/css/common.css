@@ -115,3 +115,6 @@
     background-color: var(--fundy-color-bg-warning);
     color: var(--fundy-color-warning);
 }
+.hidden{
+    display: none;
+}

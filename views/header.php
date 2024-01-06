@@ -1,11 +1,6 @@
-<nav class="px-5 navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href=".">My Logo</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="home">Home </a>
-    </div>
-  </div>
+<nav class="justify-content-end px-md-5 navbar navbar-expand-lg">
+    <button id="themeSwitcher" class="btn rounded fs-6">
+        <i class="bi bi-brightness-high"></i><span class="px-2"></span>
+    </button>
+    <a class="nav-item nav-link active" href="<?= $config->baseUrlEnd; ?>/logout/logout">logout <i class="bi bi-box-arrow-right"></i> </a>
 </nav>

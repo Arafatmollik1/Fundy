@@ -85,4 +85,9 @@ class Common
     $dayOfWeek = date('D', strtotime($date));
     return strtoupper($dayOfWeek);
   }
+  public function internalRedirect($url){
+    $config = \Config\Config::getInstance()->config;
+    header('Location: '. $config->baseUrlEnd . '/' . $url);
+    exit;
+  }
 }

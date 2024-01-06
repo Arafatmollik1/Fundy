@@ -43,6 +43,13 @@ class Config
         'lock_to_user_agent'  => true,
         'lock_to_ip'          => false,
       ),
+      'auth' =>array(
+        'google_auth' => array(
+          'client_id' => $_ENV['GOOGLE_CLIENT_ID'],
+          'client_secret' => $_ENV['GOOGLE_CLIENT_SECRET'],
+          'redirect_url' => 'http://localhost:8888/fundy/login/authcallback',
+        ),
+      ),
     
       // REST API config
       // Set common properties and define available endpoints

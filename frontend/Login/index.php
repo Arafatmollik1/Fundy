@@ -15,7 +15,7 @@
         <div id="gSignInWrapper">
           <div id="customBtn" class="customGPlusSignIn">
             <span class="icon"></span>
-            <span class="buttonText">Sign in with google</span>
+            <a href="login/processLogin?auth=google" class="buttonText text-decoration-none"> Sign in with Google</a>
           </div>
         </div>
         <div id="name"></div>

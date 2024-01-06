@@ -2,6 +2,7 @@
 
 namespace Src\Controllers;
 use Src\Utility\SqlBuilder;
+use Src\Helper\Common;
 
 class Index {
 
@@ -15,7 +16,8 @@ class Index {
    */
   public function indexAction(): Index
   {
-    header("Location: login");
+    $commonHelper = new Common();
+    $commonHelper->internalRedirect('login');
     return $this;
   }
   /**

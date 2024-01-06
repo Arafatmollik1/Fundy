@@ -22,11 +22,12 @@
     width: 42px;
     height: 42px;
   }
-  span.buttonText {
+  .buttonText {
     display: inline-block;
     vertical-align: middle;
     font-size: 14px;
     font-weight: bold;
+    color: var(--fundy-text-color);
   }
   .login-separator {
     text-align: center;
