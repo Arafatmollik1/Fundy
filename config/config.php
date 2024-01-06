@@ -50,6 +50,7 @@ class Config
           'redirect_url' => 'http://localhost:8888/fundy/login/authcallback',
         ),
       ),
+      'fundInfo' => array('id' => 'e45j'),
     
       // REST API config
       // Set common properties and define available endpoints

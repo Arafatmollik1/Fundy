@@ -67,7 +67,7 @@
                                 <h6 class = "mt-2">Send money to this account</h6>
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control bg-gray"
-                                        placeholder="Reference number (auto generated)" value="ej21-asuyn54a-mostafiz"
+                                        placeholder="Reference number (auto generated)" value="<?= $_SESSION['user_reference_number']['refNo'] ; ?>"
                                         readonly id="referenceNumber">
                                     <button class="btn btn-outline-secondary copy-button" type="button"
                                         data-copy-target="#referenceNumber"><i class="bi bi-clipboard"></i></button>
