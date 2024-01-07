@@ -41,7 +41,7 @@ class Login
           $_SESSION['user_email'] = $userInfo['email'];
           $_SESSION['user_name'] = $userInfo['name'];
           $_SESSION['access_token'] = $userInfo['accessToken'];
-          $_SESSION['user_reference_number'] = $loginHelper->setUserRefNo();
+          $_SESSION['user_reference_number'] = $loginHelper->getUserRefNo();
           $commonHelper = new Common();
           $commonHelper->internalRedirect('home');
         }

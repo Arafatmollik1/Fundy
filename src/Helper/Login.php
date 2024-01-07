@@ -34,7 +34,7 @@ class Login
 
         return $userRefNo;
     }
-    public function setUserRefNo() : string
+    public function getUserRefNo() : string
     {
         return $this->fundId;
 
