@@ -74,7 +74,8 @@ class GoogleAuthClient
             $info =  [ 
                     'email' => $this->email,
                     'name' => $this->name,
-                    'accessToken' => $this->accessToken
+                    'accessToken' => $this->accessToken,
+                    'loginMethod' => 'google',
                 ];
             return $info;
         }

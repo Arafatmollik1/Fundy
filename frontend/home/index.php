@@ -25,14 +25,14 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pay for the ticket</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="card border-0">
-                        <div class="card-body">
-                            <form action="#" method="post" id="mainForm">
+                <form action="home/setPaymentInfo" method="post" id="mainForm">
+                    <div class="modal-header border-0">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Pay for the ticket</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card border-0">
+                            <div class="card-body">
                                 <!-- Payer's Information -->
                                 <h6>Payer's information</h6>
                                 <div class="form-floating mb-3">
@@ -64,11 +64,12 @@
                                 </div>
 
                                 <!-- Payment Information -->
-                                <h6 class = "mt-2">Send money to this account</h6>
+                                <h6 class="mt-2">Send money to this account</h6>
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control bg-gray"
-                                        placeholder="Reference number (auto generated)" value="<?= $_SESSION['user_reference_number'] ; ?>"
-                                        readonly id="referenceNumber">
+                                        placeholder="Reference number (auto generated)"
+                                        value="<?= $_SESSION['user_reference_number']; ?>" readonly
+                                        id="referenceNumber">
                                     <button class="btn btn-outline-secondary copy-button" type="button"
                                         data-copy-target="#referenceNumber"><i class="bi bi-clipboard"></i></button>
                                 </div>
@@ -81,8 +82,8 @@
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control bg-gray" placeholder="Name" value="Rakibul"
                                         readonly id="name">
-                                    <button class="btn btn-outline-secondary copy-button" type="button" data-copy-target="#name"><i
-                                            class="bi bi-clipboard"></i></button>
+                                    <button class="btn btn-outline-secondary copy-button" type="button"
+                                        data-copy-target="#name"><i class="bi bi-clipboard"></i></button>
                                 </div>
                                 <div class="input-group mb-3">
                                     <input type="tel" class="form-control bg-gray" placeholder="MobilePay"
@@ -103,14 +104,14 @@
                                     <input type="text" class="form-control bg-gray" id="total_amount_paid" value="0"
                                         readonly>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">I have paid the amount</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" form="mainForm" class="btn btn-primary">I have paid the amount</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

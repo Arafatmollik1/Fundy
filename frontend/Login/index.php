@@ -15,7 +15,7 @@
         <div id="gSignInWrapper">
           <div id="customBtn" class="customGPlusSignIn">
             <span class="icon"></span>
-            <a href="login/processLogin?auth=google" class="buttonText text-decoration-none"> Sign in with Google</a>
+            <a href="login/processLoginWithGoogle" class="buttonText text-decoration-none"> Sign in with Google</a>
           </div>
         </div>
         <div id="name"></div>
@@ -25,13 +25,13 @@
       </div>
 
       <div class="basic-auth-container">
-        <form class="py-4">
+        <form action= "login/processLoginWithEmail" method="POST" id="loginForm" class="py-4">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingName" placeholder="Name" required>
+            <input type="text" name="name" class="form-control" id="floatingName" placeholder="Name" required>
             <label for="floatingName">Name</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
+            <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
             <label for="floatingEmail">Email</label>
           </div>
           <button class="w-100 btn btn-lg btn-primary fs-6" type="submit">Sign In</button>
