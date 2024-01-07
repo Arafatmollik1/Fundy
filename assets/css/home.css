@@ -15,5 +15,5 @@
     margin-right: 10px;
 }
 .ticket-price > p{
-    color: var(--fundy-color-gray);
+    color: var(--fundy-text-color);
 }

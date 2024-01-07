@@ -36,18 +36,18 @@ class Login
       $loginHelper = new loginHelper();
       $validate = $loginHelper->validateLogin($userInfo);
       if($validate){
-        $refNo = $loginHelper->generateUserRefNo($userInfo);
-        $_SESSION['user_email'] = $userInfo['email'];
-        $_SESSION['user_name'] = $userInfo['name'];
-        $_SESSION['access_token'] = $userInfo['accessToken'];
-        $_SESSION['user_reference_number'] = $refNo;
+        $setToDatabase = $loginHelper->setToDatabase($userInfo);
+        if($setToDatabase){
+          $_SESSION['user_email'] = $userInfo['email'];
+          $_SESSION['user_name'] = $userInfo['name'];
+          $_SESSION['access_token'] = $userInfo['accessToken'];
+          $_SESSION['user_reference_number'] = $loginHelper->setUserRefNo();
+          $commonHelper = new Common();
+          $commonHelper->internalRedirect('home');
+        }
       }
-      $commonHelper = new Common();
-      $commonHelper->internalRedirect('home');
     }
-    else{
-      $commonHelper = new Common();
-      $commonHelper->internalRedirect('login');
-    }
+    $commonHelper = new Common();
+    $commonHelper->internalRedirect('login');
   }
 }
