@@ -30,7 +30,8 @@ class Login
   public function processLoginWithEmailAction(){
     if(!empty($_POST['name']) && !empty($_POST['email'])){
       $userInfo['name'] = trim($_POST['name']);
-      $userInfo['email'] = preg_replace('/\s+/', '', $_POST['email']);
+      $emailLowerCase = strtolower($_POST['email']);
+      $userInfo['email'] = preg_replace('/\s+/', '', $emailLowerCase);
       $userInfo['loginMethod'] = 'email';
     }
     if (!empty($userInfo)) {

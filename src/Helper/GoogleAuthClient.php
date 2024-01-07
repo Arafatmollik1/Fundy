@@ -52,7 +52,7 @@ class GoogleAuthClient
                 $google_oauth = new Google_Service_Oauth2($client);
                 $google_account_info = $google_oauth->userinfo->get();
 
-                $this->email = $google_account_info->email;
+                $this->email = strtolower($google_account_info->email);
                 $this->name = $google_account_info->name;
             }catch(\Exception $e){
                 $logger = new DebugLogger();
