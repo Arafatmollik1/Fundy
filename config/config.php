@@ -51,24 +51,22 @@ class Config
         ),
       ),
       'fundInfo' => array(
-        'id' => 'e45j'
+        'id' => 'e45j',
+        'post_id' => '1111'
       ),
     
       // REST API config
       // Set common properties and define available endpoints
       'api_config' => array(
         'enabled'               => true,
-        'enable_authentication' => false,
+        'enable_authentication' => true,
         'authentication' => array(
           'user'      => $_ENV['LOCAL_API_USER'],
           'password'  => $_ENV['LOCAL_API_PASSWORD']
         ),
         'endpoints' => array(
-          'example' => array( //this is the name of controller, all small letter and no hyphens
-            'uri' => '/api/v1/example',//uri can have hyphens and letter case font matter
-          ),
-          'exampletwo' => array(
-            'uri' => '/api/v2/example',
+          'fundyapi' => array(
+            'uri' => '/api/v1/fundyapi',
           ),
         )
     ),

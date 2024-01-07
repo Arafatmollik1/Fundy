@@ -1,27 +1,61 @@
 <?php include 'views/header.php'; ?>
+
 <div class="container  vh-100 d-flex justify-content-center align-items-center">
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="assets/pictures/example_pic.JPG" alt="Card image cap">
+        <img class="card-img-top" src="<?= $serverData->imageURL; ?>" alt="Card image cap">
         <div class="card-body">
             <div class="mb-5">
-                <h5 class="card-title">Celebrating victory day</h5>
-                <p class="text-secondary fs-6">Let’s celebrate 16th December, victory day.</p>
+                <h5 class="card-title">
+                    <?= $serverData->postHeader; ?>
+                </h5>
+                <p class="fs-6">
+                    <?= $serverData->postSubHeader; ?>
+                </p>
             </div>
             <hr class="hr">
-            <div class="ticket-price">
-                <div class="tag-holder">
-                    <span> Price </span>
+            <?php if ($serverData->paymentStatus == 'none'): ?>
+                <div class="ticket-price">
+                    <div class="tag-holder">
+                        <span> Price </span>
+                    </div>
+                    <p class="m-0"> €8 </p>
                 </div>
-                <p class="m-0"> €8 </p>
-            </div>
-            <div class="text-center w-100">
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy
-                    ticket</a>
-            </div>
+                <div class="text-center w-100">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy
+                        ticket</button>
+                </div>
+            <?php elseif ($serverData->paymentStatus == 'pending'): ?>
+                <div class="alert alert-warning fs-xxs" role="alert">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <span>
+                        Your payment is pending, come back later!
+                    </span>
+                </div>
+                <div class="text-center w-100">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy
+                        more
+                        tickets</button>
+                </div>
+            <?php elseif ($serverData->paymentStatus == 'confirmed'): ?>
+                <div class="alert alert-success fs-xxs" role="alert">
+                    You payment has been received!
+                </div>
+                <div class="w-100 text-center fs-xs text-secondary">
+                    You are
+                    <?= $serverData->confirmedParticipants; ?> participant<?= $serverData->confirmedParticipants > 1 ? 's' : ''; ?>
+                </div>
+                <div class="text-center w-100 mt-2">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#checkInModal">Check
+                        in</button>
+                </div>
+            <?php else: ?>
+            <?php endif; ?>
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Payment Modal -->
+    <?php if($serverData->paymentStatus !== 'confirmed'): ?>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -101,7 +135,7 @@
                                 </div>
                                 <h6>Total Amount To be paid</h6>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control bg-gray" id="total_amount_paid" value="0"
+                                    <input type="text" class="form-control bg-gray" name="paymentAmount" id="total_amount_paid" value="0"
                                         readonly>
                                 </div>
                             </div>
@@ -115,4 +149,59 @@
             </div>
         </div>
     </div>
+    <?php endif; ?>
+    <!-- check in modal -->
+    <?php if($serverData->paymentStatus == 'confirmed'): ?>
+    <form action="home/userChecksIn" method="post" id="checkInForm">
+        <div class="modal fade " id="checkInModal" tabindex="-1" aria-labelledby="exampleModalScrollableTitle"
+            aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h1 class="modal-title fs-5" id="exampleModalScrollableTitle">check in</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-gray">
+                        <p>Before you check in please read the community guidelines carefully.</p>
+                        <div class="border border-dark rounded p-2">
+                            <ul>
+                                <li><strong>Littering:</strong> Do not leave trash around. Use provided bins or take your
+                                    waste with you.</li>
+                                <li><strong>Unruly Behavior:</strong> Aggressive, violent, or otherwise disruptive behavior
+                                    will not be tolerated.</li>
+                                <li><strong>Illegal Substances:</strong> The use or distribution of illegal drugs is
+                                    strictly prohibited.</li>
+                                <li><strong>Smoking:</strong> If smoking is allowed, use designated smoking areas and
+                                    properly dispose of cigarette butts.</li>
+                                <li><strong>Unsupervised Children:</strong> Children should be supervised by an adult at all
+                                    times.</li>
+                                <li><strong>Cleanliness:</strong> Please keep clean.</li>
+                                <li><strong>Parking car:</strong> Please park you car accordingly.</li>
+                            </ul>
+                        </div>
+                        <div class="form-check mt-3 mb-5">
+                            <input class="form-check-input" type="checkbox" name="communityGuidelinesChecked" id="communityGuidelinesChecked">
+                            <label class="form-check-label text-secondary" for="flexCheckChecked">
+                                I understand the community guidelines
+                            </label>
+                        </div>
+                        <h6 class="mt-2">All Participants arrived(<?= count($serverData->allParticipants); ?>)</h6>
+                        <?php foreach($serverData->allParticipants as $key => $participants): ?>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" name="confirmedParticipants<?= $key;?>"  id="confirmedParticipants<?= $key;?>" checked>
+                            <label class="form-check-label" for="confirmedParticipants<?= $key;?>">
+                                <?= $participants['name'];  ?>
+                            </label>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" form="checkInForm" class="btn btn-primary">Check in</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <?php endif; ?>
 </div>

@@ -113,15 +113,11 @@
     color: var(--fundy-color-warning);
 }
 
-/* Alert styles */
-.alert-success {
-    background-color: var(--fundy-color-bg-success);
-    color: var(--fundy-color-success);
+.fs-xxs{
+    font-size: 12px;
 }
-
-.alert-warning {
-    background-color: var(--fundy-color-bg-warning);
-    color: var(--fundy-color-warning);
+.fs-xs{
+    font-size: 14px;
 }
 .hidden{
     display: none;
