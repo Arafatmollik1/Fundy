@@ -13,8 +13,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Src\\": "src/",
-            "Config\\": "config/"
+            "Src\\": "Src/",
+            "Config\\": "Config/"
         }
     },
     "authors": [
