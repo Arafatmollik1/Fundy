@@ -65,7 +65,7 @@ class Config
           'password'  => $_ENV['LOCAL_API_PASSWORD']
         ),
         'endpoints' => array(
-          'fundyapi' => array(
+          'Fundyapi' => array(
             'uri' => '/api/v1/fundyapi',
           ),
         )
