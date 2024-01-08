@@ -8,6 +8,7 @@ class Home
     public array $paymentInfo;
     private int $participantCount;
     private array $confirmedParticipants;
+    public string $paymentId;
 
     public function __construct(){
 
@@ -48,14 +49,13 @@ class Home
     public function setPayment() : void
     {
         $crudify = new SqlBuilder();
-        $paymentInfo = $this->getPaymentInfoBasedOnFormData();
-        if(empty($paymentInfo)){
             $refId = $_SESSION['user_reference_number'];
             $usersInfo = $crudify->read('*')->from('users')->where("ref_id='$refId'")->execute();
             $participantInfo = $this->getParticipantInfo();
             $participantNo = $this->getParticipantNo();
+            $this->paymentId = rand(100000, 999999);
             $insert = [
-                'payment_id' => rand(100000, 999999),
+                'payment_id' => $this->paymentId,
                 'user_id' => $usersInfo[0]['user_id'],
                 'ref_id' => $usersInfo[0]['ref_id'],
                 'email' => $usersInfo[0]['email'],
@@ -69,7 +69,6 @@ class Home
 
             ];
             $crudify->create($insert)->from('payments')->execute();
-        }
     }
     public function setAllParticipantsTickets() : void
     {
@@ -78,6 +77,7 @@ class Home
         $participantInfo = $this->getParticipantInfo();
         foreach($participantInfo['adult'] as $participant){
             $insert = [
+                'ticket_id' =>  $this->paymentId,
                 'name' => $participant,
                 'email' => '',
                 'payment_status' => 'pending',
@@ -89,6 +89,7 @@ class Home
         }
         foreach($participantInfo['child'] as $participant){
             $insert = [
+                'ticket_id' =>  $this->paymentId,
                 'name' => $participant,
                 'email' => '',
                 'payment_status' => 'pending',
@@ -98,13 +99,6 @@ class Home
             ];
             $crudify->create($insert)->from('tickets')->execute();
         }
-    }
-    protected function getPaymentInfoBasedOnFormData() : array
-    {
-        $crudify = new SqlBuilder();
-        $refId = $_SESSION['user_reference_number'];
-        $payments = $crudify->read('*')->from('payments')->where("ref_id='$refId'")->execute();
-        return count($payments) > 0 ? $payments[0] : [];
     }
     protected function getParticipantNo() : int
     {
